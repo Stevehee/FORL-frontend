@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
-import {PlusOutlined, UploadOutlined} from '@ant-design/icons';
+import {PlusOutlined} from '@ant-design/icons';
 
 import {
     Button,
-    Cascader,
-    Checkbox,
-    DatePicker,
     Form,
-    Input,
-    InputNumber,
-    Radio,
-    Select,
-    Slider,
-    Switch,
-    TreeSelect,
     Upload,
 } from 'antd';
 
-
+// main component of the app
 function App() {
     const [file, setFile] = useState(null);
     const [param1, setParam1] = useState('');
@@ -32,7 +22,7 @@ function App() {
 
 
 
-
+    // parse incoming .csv file
     const parseFile =  async (file) => {
         const content = await file.text();
         const rows = content.split('\n').filter(row => row).slice(0, 10); // slice(0, 10) to get only the top 10 rows
@@ -43,12 +33,13 @@ function App() {
     };
 
 
-
+    // event handler for selecting a file
     const handleFileChange = (file) => {
         setFile(file);
         parseFile(file).then(()=>{console.log("file uploaded")});
     };
 
+    // event handler for uploading
     const handleSubmit = async () => {
         setIsLoading(true);
 
@@ -86,6 +77,7 @@ function App() {
         }
     };
 
+    // component for displaying the dataset
     function DataTable({ headers, data }) {
         return (
             <table>
