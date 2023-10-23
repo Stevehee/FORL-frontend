@@ -1,7 +1,7 @@
 {
   "name": "foil-frontend",
   "version": "0.1.0",
-  "private": true,q
+  "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@testing-library/jest-dom": "^5.17.0",
